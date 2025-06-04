@@ -10,6 +10,8 @@ npm install detect-language
 
 ## Usage
 
+### JavaScript
+
 ```javascript
 const { detectLanguage } = require("detect-language");
 
@@ -24,12 +26,29 @@ const detectedJapanese = detectLanguage(japaneseText);
 console.log(detectedJapanese); // Output: "Hiragana"
 ```
 
+### TypeScript
+
+```typescript
+import { detectLanguage } from "detect-language";
+
+// Detect language from text
+const text: string = "Hello, how are you?";
+const detectedLanguage: string = detectLanguage(text);
+console.log(detectedLanguage); // Output: "Basic Latin"
+
+// Example with non-Latin text
+const japaneseText: string = "こんにちは";
+const detectedJapanese: string = detectLanguage(japaneseText);
+console.log(detectedJapanese); // Output: "Hiragana"
+```
+
 ## Features
 
 - Lightweight and fast language detection
 - No external dependencies
 - Supports a wide range of Unicode scripts and languages
 - Simple and easy to use API
+- Full TypeScript support
 
 ## How it works
 

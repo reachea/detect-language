@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "A lightweight library to detect the language of a given text using Unicode ranges",
   "main": "index.js",
+  "types": "index.d.ts",
   "files": [
     "index.js",
+    "index.d.ts",
     "detectLanguage.js",
     "data/*.js",
     "LICENSE",
@@ -20,7 +22,8 @@
     "unicode",
     "text",
     "i18n",
-    "internationalization"
+    "internationalization",
+    "typescript"
   ],
   "author": "Udomreachea Sambath",
   "license": "MIT",
