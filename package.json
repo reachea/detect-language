@@ -1,5 +1,5 @@
 {
-  "name": "detect-language",
+  "name": "lang-detect",
   "version": "1.0.0",
   "description": "A lightweight library to detect the language of a given text using Unicode ranges",
   "main": "index.js",
@@ -29,12 +29,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reachea/detect-language.git"
+    "url": "git+https://github.com/reachea/lang-detect.git"
   },
   "bugs": {
-    "url": "https://github.com/reachea/detect-language/issues"
+    "url": "https://github.com/reachea/lang-detect/issues"
   },
-  "homepage": "https://github.com/reachea/detect-language#readme",
+  "homepage": "https://github.com/reachea/lang-detect#readme",
   "engines": {
     "node": ">=12.0.0"
   }

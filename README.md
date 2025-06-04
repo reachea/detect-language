@@ -1,11 +1,11 @@
-# detect-language
+# lang-detect
 
 A lightweight library to detect the language of a given text using Unicode ranges. This library analyzes the Unicode ranges of characters in the input text to determine the most likely language.
 
 ## Installation
 
 ```bash
-npm install detect-language
+npm install lang-detect
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install detect-language
 ### JavaScript
 
 ```javascript
-const { detectLanguage } = require("detect-language");
+const { detectLanguage } = require("lang-detect");
 
 // Detect language from text
 const text = "Hello, how are you?";
@@ -29,7 +29,7 @@ console.log(detectedJapanese); // Output: "Hiragana"
 ### TypeScript
 
 ```typescript
-import { detectLanguage } from "detect-language";
+import { detectLanguage } from "lang-detect";
 
 // Detect language from text
 const text: string = "Hello, how are you?";
