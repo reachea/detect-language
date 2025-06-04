@@ -1,4 +1,4 @@
-declare module "lang-detect" {
+declare module "unicode-lang" {
   /**
    * Detects the language/script of the given text based on Unicode ranges
    * @param text - The text to analyze
