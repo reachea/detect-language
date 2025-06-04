@@ -1,0 +1,31 @@
+{
+  "name": "detect-language",
+  "version": "1.0.0",
+  "description": "A lightweight library to detect the language of a given text using Unicode ranges",
+  "main": "index.js",
+  "scripts": {
+    "test": "node validate.js",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "language",
+    "detection",
+    "unicode",
+    "text",
+    "i18n",
+    "internationalization"
+  ],
+  "author": "Udomreachea Sambath",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reachea/detect-language.git"
+  },
+  "bugs": {
+    "url": "https://github.com/reachea/detect-language/issues"
+  },
+  "homepage": "https://github.com/reachea/detect-language#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}

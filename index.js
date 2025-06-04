@@ -1,1 +1,1 @@
-module.exports = require("./detactLanguage");
+module.exports = require("./detectLanguage");
