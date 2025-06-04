@@ -1,0 +1,32 @@
+# Development files
+.git/
+.gitignore
+.qodo/
+validate.js
+.eslintrc
+.eslintignore
+.editorconfig
+
+# Test files
+__tests__/
+test/
+tests/
+*.test.js
+*.spec.js
+
+# CI/CD
+.github/
+.travis.yml
+.gitlab-ci.yml
+.circleci/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Misc
+.DS_Store
+*.log
+.env* 

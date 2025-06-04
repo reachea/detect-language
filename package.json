@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "A lightweight library to detect the language of a given text using Unicode ranges",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "detectLanguage.js",
+    "data/*.js",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "test": "node validate.js",
     "lint": "eslint ."
