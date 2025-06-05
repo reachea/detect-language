@@ -18,6 +18,17 @@ declare module "unicode-lang" {
     unicode: string;
   }
 
+  interface ScriptInfo {
+    range: [string, string];
+    direction: "LTR" | "RTL" | "TTB";
+    writingSystem:
+      | "Alphabet"
+      | "Abugida"
+      | "Abjad"
+      | "Syllabary"
+      | "Logographic";
+  }
+
   /**
    * Detects the language/script of the given text based on Unicode ranges
    * @param text - The text to analyze
@@ -38,4 +49,11 @@ declare module "unicode-lang" {
    * @returns Array of character analysis results including the character, its script, and Unicode value
    */
   export function analyzeText(text: string): CharacterAnalysis[];
+
+  /**
+   * Gets detailed information about a specific script
+   * @param scriptName - The name of the script (e.g., "Thai", "Arabic", "Hiragana")
+   * @returns Script information including Unicode range, writing direction, and writing system
+   */
+  export function getScriptInfo(scriptName: string): ScriptInfo | null;
 }

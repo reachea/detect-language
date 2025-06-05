@@ -17,6 +17,7 @@ const {
   detectLanguage,
   deepDetectLanguage,
   analyzeText,
+  getScriptInfo,
 } = require("unicode-lang");
 
 // Basic language detection
@@ -65,12 +66,28 @@ console.log(analysis);
   { char: 'ا', script: 'Arabic', unicode: '627' }
 ]
 */
+
+// Get script information
+const thaiInfo = getScriptInfo("Thai");
+console.log(thaiInfo);
+/* Output:
+{
+  range: ["0E00", "0E7F"],
+  direction: "LTR",
+  writingSystem: "Abugida"
+}
+*/
 ```
 
 ### TypeScript
 
 ```typescript
-import { detectLanguage, deepDetectLanguage, analyzeText } from "unicode-lang";
+import {
+  detectLanguage,
+  deepDetectLanguage,
+  analyzeText,
+  getScriptInfo,
+} from "unicode-lang";
 
 // Basic language detection
 const text: string = "Hello, how are you?";
@@ -85,6 +102,10 @@ console.log(deepResult);
 // Per-character script analysis
 const analysis: CharacterAnalysis[] = analyzeText("Hello مرحبا");
 console.log(analysis);
+
+// Get script information
+const thaiInfo: ScriptInfo | null = getScriptInfo("Thai");
+console.log(thaiInfo);
 ```
 
 ## Features
@@ -97,6 +118,7 @@ console.log(analysis);
 - Detailed language detection with confidence scores
 - Support for mixed-language text analysis
 - Per-character script analysis with Unicode information
+- Script information with Unicode ranges and writing system details
 
 ## How it works
 
@@ -120,6 +142,13 @@ For character analysis, it:
 2. Identifies the script for each character
 3. Provides Unicode information for each character
 4. Returns detailed analysis for building editors or validators
+
+For script information, it provides:
+
+1. Unicode range for the script
+2. Writing direction (LTR, RTL, or TTB)
+3. Writing system type (Alphabet, Abugida, etc.)
+4. Detailed metadata for typography and text processing
 
 ## Supported Languages
 
@@ -157,6 +186,14 @@ Per-character script analysis that returns detailed information for each charact
 - `char`: The character itself
 - `script`: The script/language the character belongs to
 - `unicode`: The Unicode code point in hexadecimal
+
+### getScriptInfo(scriptName: string): ScriptInfo | null
+
+Returns detailed information about a specific script:
+
+- `range`: Unicode range for the script (uppercase hexadecimal strings)
+- `direction`: Writing direction (LTR, RTL, or TTB)
+- `writingSystem`: Type of writing system (Alphabet, Abugida, etc.)
 
 ## License
 

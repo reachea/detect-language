@@ -1,4 +1,5 @@
 const { languageUnicode } = require("./data");
+const { scriptInfo } = require("./data/scriptInfo");
 
 function detectLanguage(text) {
   // split into words
@@ -151,8 +152,21 @@ function analyzeText(text) {
   return result;
 }
 
+function getScriptInfo(scriptName) {
+  const info = scriptInfo[scriptName];
+  if (!info) {
+    return null;
+  }
+
+  return {
+    ...info,
+    range: info.range.map((code) => `0x${code.toString(16).toUpperCase()}`),
+  };
+}
+
 module.exports = {
   detectLanguage,
   deepDetectLanguage,
   analyzeText,
+  getScriptInfo,
 };
