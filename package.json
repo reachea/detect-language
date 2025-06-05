@@ -1,6 +1,6 @@
 {
   "name": "unicode-lang",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A lightweight library to detect the language of a given text using Unicode ranges",
   "main": "index.js",
   "types": "index.d.ts",

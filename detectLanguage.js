@@ -2,6 +2,7 @@ const { languageUnicode } = require("./data");
 const { scriptInfo } = require("./data/scriptInfo");
 
 function detectLanguage(text) {
+  if (!text || !text.trim()) return null;
   // split into words
   const langs = text
     .trim()

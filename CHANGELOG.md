@@ -32,6 +32,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced TypeScript support
 - Improved documentation and examples
 
+## [1.1.2] - 2024-03-20
+
+### Fixed
+
+- `detectLanguage("")` and whitespace-only input now correctly return `null` instead of "Not found!"
+
 ## [1.0.0] - 2024-03-19
 
 ### Added
