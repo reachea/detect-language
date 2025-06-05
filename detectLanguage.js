@@ -55,6 +55,104 @@ function detectLanguage(text) {
   }
 }
 
+function deepDetectLanguage(text) {
+  // split into words
+  const wordResults = text
+    .trim()
+    .split(/\s+/)
+    .map((word) => {
+      return detectWithScores(word);
+    });
+
+  // Aggregate results across all words
+  const aggregatedScores = wordResults.reduce((acc, result) => {
+    if (result === "Not found!") return acc;
+
+    Object.entries(result).forEach(([lang, score]) => {
+      acc[lang] = (acc[lang] || 0) + score;
+    });
+    return acc;
+  }, {});
+
+  // Calculate final scores
+  const totalWords = wordResults.length;
+  const finalScores = Object.entries(aggregatedScores).map(([lang, score]) => ({
+    language: lang,
+    confidence: (score / totalWords) * 100,
+    score: score,
+  }));
+
+  // Sort by confidence
+  finalScores.sort((a, b) => b.confidence - a.confidence);
+
+  return {
+    detected: finalScores.length > 0,
+    primary: finalScores[0] || null,
+    alternatives: finalScores.slice(1),
+    wordResults: wordResults,
+  };
+}
+
+function detectWithScores(text) {
+  const scores = {};
+  const regexes = {};
+
+  languageUnicode?.forEach((item) => {
+    regexes[item.name] = new RegExp(
+      `[\\u${item.start_code}-\\u${item.end_code}]`,
+      "gi"
+    );
+  });
+
+  for (const [lang, regex] of Object.entries(regexes)) {
+    let matches = text.match(regex) || [];
+    let score = matches.length / text.length;
+
+    if (score) {
+      scores[lang] = score;
+    }
+  }
+
+  return Object.keys(scores).length === 0 ? "Not found!" : scores;
+}
+
+function analyzeText(text) {
+  const result = [];
+  const regexes = {};
+
+  // Create regexes for each language
+  languageUnicode?.forEach((item) => {
+    regexes[item.name] = new RegExp(
+      `[\\u${item.start_code}-\\u${item.end_code}]`,
+      "gi"
+    );
+  });
+
+  // Analyze each character
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    let script = "Unknown";
+
+    // Check each language's regex
+    for (const [lang, regex] of Object.entries(regexes)) {
+      if (regex.test(char)) {
+        script = lang;
+        break;
+      }
+    }
+
+    result.push({
+      char,
+      script,
+      unicode: char.charCodeAt(0).toString(16).toUpperCase(),
+    });
+  }
+
+  return result;
+}
+
 module.exports = {
   detectLanguage,
+  deepDetectLanguage,
+  analyzeText,
 };
