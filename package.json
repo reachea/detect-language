@@ -14,8 +14,7 @@
   ],
   "scripts": {
     "test": "node validate.js",
-    "lint": "eslint .",
-    "prepare": "husky install"
+    "lint": "eslint ."
   },
   "keywords": [
     "language",
