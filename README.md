@@ -68,8 +68,8 @@ console.log(analysis);
 */
 
 // Get script information
-const thaiInfo = getScriptInfo("Thai");
-console.log(thaiInfo);
+const khmerInfo = getScriptInfo("Khmer");
+console.log(khmerInfo);
 /* Output:
 {
   range: ["0E00", "0E7F"],
@@ -104,8 +104,8 @@ const analysis: CharacterAnalysis[] = analyzeText("Hello مرحبا");
 console.log(analysis);
 
 // Get script information
-const thaiInfo: ScriptInfo | null = getScriptInfo("Thai");
-console.log(thaiInfo);
+const khmerInfo: ScriptInfo | null = getScriptInfo("Khmer");
+console.log(khmerInfo);
 ```
 
 ## Features
