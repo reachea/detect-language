@@ -4,8 +4,7 @@ module.exports = {
     "@semantic-release/commit-analyzer", // reads commit type
     "@semantic-release/release-notes-generator", // generates changelog
     "@semantic-release/changelog", // updates CHANGELOG.md
-    "@semantic-release/git", // commits changelog and package.json
-    "@semantic-release/github", // creates GitHub Release
+    "@semantic-release/npm", // publishes to npm
     [
       "@semantic-release/git",
       {
@@ -14,5 +13,6 @@ module.exports = {
           "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}",
       },
     ],
+    "@semantic-release/github", // creates GitHub Release
   ],
 };
